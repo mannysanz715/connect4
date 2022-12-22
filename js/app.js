@@ -19,11 +19,11 @@ const gameBoard = document.querySelector('.board-container')
 
 // ? ----------------------- EventListeners ---------------
 
-gameBoard.addEventListener('click', event =>{
-  console.log(`{event.target.id} `)
-})
+gameBoard.addEventListener('click', changeColor)
 
-console.log(gameBoard)
+
+
+
 
 
 
@@ -40,8 +40,13 @@ function render(){
 
 }
 
-function updateBoard(){
-
+function changeColor(event){
+  let column = event.target.parentElement.className
+  if(event.target.parentElement.className !== 'board-container'){
+    for
+  
+  
+  }
 }
 
 function checkForWinner(){
