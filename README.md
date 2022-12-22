@@ -19,4 +19,4 @@ Connect 4 is a Two Player game that requires an imense amount of skill. The cirl
 
 - [ ] Refactor Styling
 - [ ] Create Computer Player
-- [x] Redo Annimations
+- [ ] Redo Annimations
