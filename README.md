@@ -1,5 +1,8 @@
 # CONNECT 4
 
-
 CLICK HERE TO PLAY
 ---------------------
+
+Connect 4 is a Two Player game that requires an imense amount of skill. The cirlces in the board are click-able, dropping a connect4 piece into the lowest open slot on the board. Each player is a signed a color. Player 1 is red : Player 2 yellow. The objective is to take turns with your opponent, dropping pieces into slots. The first person to connect 4 of them in a row is the winner. BE WARNED. THIS GAME WILL RUIN FRIENDSHIPS!!
+
+
