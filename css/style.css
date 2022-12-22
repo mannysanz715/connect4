@@ -1,7 +1,14 @@
+--root{
+  --slotcolor: #01BAEF;
+}
+h1{
+  color: #ffb700;
+}
 body{
   display: flex;
   flex-direction:column ;
   align-items: center;
+  background-color: #01BAEF;
 }
 
 .board-container {
@@ -9,15 +16,15 @@ body{
   font-size: 8vmin;
   text-align: center;
   vertical-align: middle; 
-  background-color: lightblue;
+  background-color: blue;
   width: 700px;
   height: 550px;
 }
 .circle{
+  background-color: #c6ebbe;
   margin: 10px;
   width: 80px;
   height: 80px;
-  background-color: white;
   border-radius: 50%;
 }
 

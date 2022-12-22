@@ -1,16 +1,13 @@
 
-
-
-
-
-
 // ? -------------------- consts ---------------------------
 const winningCombos = [[]]
 
-const player1 = 'red'
-const player2 = 'yellow'
+const player1 = '#a63a50'
+const player2 = '#E6AA68'
+const boardArr = []
+let currentPlayer
+let winner
 
-let currentPlayer = -1
 
 
 // ? -----------------  CachedElements -------------
@@ -28,23 +25,31 @@ gameBoard.addEventListener('click', changeColor)
 
 
 
-
 // ? ----------------------------------- Functions ---------------------------
 
 init()
 
-function init(){
-  
+function init () {
+  currentPlayer = 1
+  winner = false
+  createBoard()
   render()
 }
+
+function createBoard(){
+  for(let i = 0; i < gameBoard.children.length; i++){
+    boardArr.push([null,null,null,null,null,null])
+  }
+}
+
 
 function render(){
 
 }
 
 function changeColor(event){
-  let column = event.target.parentElement.className
-  let row = []
+
+
   if(column !== 'board-container'){
     console.log(row, column) 
     
@@ -64,6 +69,9 @@ function dropPiece(){
 }
 
 function switchPlayer(){
+  if(!winner){
+    currentPlayer *= -1
+  }
 
 }
 
