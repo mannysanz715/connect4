@@ -1,7 +1,6 @@
 
 // ? -------------------- consts ---------------------------
 const winningCombos = [[],]
-console.log(boardSlots)
 
 
 
@@ -75,12 +74,12 @@ function dropPiece(event){
       switchPlayer()
       console.log(boardArr)
       return
-      }
     }
+  }
 }
 
 function checkForWinner(){
-
+  
 }
 
 function checkForDraw(){
@@ -94,16 +93,16 @@ function checkForDraw(){
     draw = true
   }
   console.log(checkVal)
-
+  
   
 }
 
 function switchPlayer(){
-    currentPlayer *= -1
+  currentPlayer *= -1
 }
 
 function collisionDetection(){
-
+  
 }
 
 function updateMessage (){
@@ -117,3 +116,5 @@ function updateMessage (){
   }
 }
 
+
+console.log(boardSlots)
