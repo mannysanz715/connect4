@@ -17,6 +17,7 @@ Connect 4 is a Two Player game that requires an imense amount of skill. The cirl
 
 ## IceBox
 
-- [ ] Refactor Styling
+- [x] Refactor Styling
 - [ ] Create Computer Player
-- [ ] Redo Annimations
+- [x] Redo Annimations
+- [ ] Make hover over slots show where the chip will fall
