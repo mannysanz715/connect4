@@ -1,4 +1,7 @@
 
+
+let clickSound = new Audio('./assets/click.mp3')
+let resetSoundAudio = new Audio('./assets/resetSound.mp3')
 // ? -------------------- consts ---------------------------
 const winningCombos = [[0, 1, 2, 3], [41, 40, 39, 38], [7, 8, 9, 10], [34, 33, 32,31], [14, 15, 16, 17],
   [27, 26, 25, 24],[21, 22, 23, 24],
@@ -51,12 +54,19 @@ const resetBtn = document.getElementById('reset')
 
 const message = document.getElementById('message')
 
+const title = document.getElementById('title')
+
+
+console.log(title)
 // ? ----------------------- EventListeners ---------------
 
 gameBoard.addEventListener('click', play)
 
 resetBtn.addEventListener('click', init)
 
+gameBoard.addEventListener('click', shakeBoard)
+
+resetBtn.addEventListener('click', resetSound)
 
 
 
@@ -69,6 +79,8 @@ function init () {
   currentPlayer = 1
   winner = false
   draw = false
+  title.classList.add('animate__rotateInDownRight')
+  console.log(title.className)
   boardSlots.forEach(element =>{
     element.style.backgroundColor = ''
   })
@@ -82,10 +94,24 @@ function createBoard(){
   }
 }
 
+function shakeBoard(e){
+  if(e.target.parentElement.classList[0]==='board-container'){
+    e.target.parentElement.classList.add('animate__shakeX')
+    setTimeout(function(){
+      e.target.parentElement.classList.remove('animate__shakeX');
+    }, 1000);
+  }
+  clickSound.play()
+}
+
+function resetSound (){
+  resetSoundAudio.play()
+}
+
 
 function play(event){
   let clickedSlot = event.target
-  if(clickedSlot.parentElement.className !== 'board-container'){
+  if(clickedSlot.parentElement.className[0] !== 'board-container'){
     dropPiece(event)
     checkForWinner()
   }
@@ -97,10 +123,13 @@ function dropPiece(event){
   let column = event.target.parentElement.classList[0]
   if(!winner){
     for(let i = 5; i > -1; i--){
-      if(boardArr[column][i] == null){
+      if(boardArr[column][i] === null){
+        boardArr[column][i]
         boardArr[column][i] = currentPlayer
         if(currentPlayer === 1) clickedSlot.parentElement.children[i].style.backgroundColor = player1 
         else if(currentPlayer === -1) clickedSlot.parentElement.children[i].style.backgroundColor = player2
+        clickSound.loop = false
+        clickSound.play()
         checkForDraw()
         switchPlayer()
         return

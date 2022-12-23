@@ -2,7 +2,7 @@
 
 [CLICK HERE TO PLAY](https://connect4-ms.netlify.app/ "connect4 link")
 ---------------------
-![gameImg](./assets/Screenshot%202022-12-22%20at%2012.44.08%20PM.png)
+![gameImg](./assets/Screenshot%202022-12-22%20at%209.21.25%20PM.png)
 
 
 

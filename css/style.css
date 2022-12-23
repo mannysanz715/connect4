@@ -1,6 +1,9 @@
 --root{
   --slotcolor: #01BAEF;
 }
+*{
+  font-family: 'Unbounded', curisve;
+}
 h1{
   color: #ffb700;
 }
@@ -13,6 +16,7 @@ body{
 
 .board-container {
   display: flex;
+  border-radius: 20px;
   font-size: 8vmin;
   text-align: center;
   vertical-align: middle; 
@@ -31,10 +35,15 @@ body{
 button{
   background-color: #c6ebbe;
   border: none;
-  width: 80px;
-  height: 80px;
+  width: 85px;
+  height: 85px;
   border-radius: 50%;
   margin: 25px;
+  font-family: 'Unbounded',cursive;
+  font-weight: 500;
+  font-size: 20px;
+  text-align: center;
+
 }
 .circle:hover{
   background-color: #62aa52;
