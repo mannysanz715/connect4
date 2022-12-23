@@ -1,9 +1,9 @@
 
 // ? -------------------- consts ---------------------------
-const winningCombos = [[0, 1, 2, 3], [41, 40, 39, 38],[7, 8, 9, 10],[34, 33, 32,31],[14, 15, 16, 17],
+const winningCombos = [[0, 1, 2, 3], [41, 40, 39, 38], [7, 8, 9, 10], [34, 33, 32,31], [14, 15, 16, 17],
   [27, 26, 25, 24],[21, 22, 23, 24],
   [20, 19, 18, 17],[28, 29, 30, 31],
-  [13, 12, 11, 10],[35, 36, 37, 38],
+  [13, 12, 11, 10],[35, 36, 37, 38], [5,10,15,20],
   [6, 5, 4, 3],[0, 7, 14, 21],
   [41, 34, 27, 20],[1, 8, 15, 22],
   [40, 33, 26, 19],[2, 9, 16, 23],[39, 32, 25, 18],
@@ -95,24 +95,32 @@ function play(event){
 function dropPiece(event){
   let clickedSlot = event.target
   let column = event.target.parentElement.classList[0]
-  for(let i = 5; i > -1; i--){
-    if(boardArr[column][i] == null){
-      boardArr[column][i] = currentPlayer
-      if(currentPlayer === 1) clickedSlot.parentElement.children[i].style.backgroundColor = player1 
-      else if(currentPlayer === -1) clickedSlot.parentElement.children[i].style.backgroundColor = player2
-      checkForDraw()
-      switchPlayer()
-      return
+  if(!winner){
+    for(let i = 5; i > -1; i--){
+      if(boardArr[column][i] == null){
+        boardArr[column][i] = currentPlayer
+        if(currentPlayer === 1) clickedSlot.parentElement.children[i].style.backgroundColor = player1 
+        else if(currentPlayer === -1) clickedSlot.parentElement.children[i].style.backgroundColor = player2
+        checkForDraw()
+        switchPlayer()
+        return
+      }
     }
   }
 }
 
 function checkForWinner(){
+  let boardForCheck = []
+  boardArr.forEach(arr =>{
+    arr.forEach(el =>{
+      boardForCheck.push(el)
+    })
+  })
+
   for(let i = 0; i < winningCombos.length; i++){
-    console.log(boardSlots[winningCombos[i][0]])
-  if(Math.abs(boardSlots[winningCombos[i][0]] + boardSlots[winningCombos[i][1]] + boardSlots[winningCombos[i][2]] + boardSlots[winningCombos[i][3]]) === 4){
-  winner = true
-    } 
+    if(Math.abs(boardForCheck[winningCombos[i][0]] + boardForCheck[winningCombos[i][1]] + boardForCheck[winningCombos[i][2]] + boardForCheck[winningCombos[i][3]]) === 4){
+    winner = true
+      } 
   }
   console.log(winner)
 }
@@ -135,8 +143,17 @@ function switchPlayer(){
 
 
 function updateMessage (){
+  let playerRed = 'Red'
+  let playerYellow = 'Yellow'
+  let player
+  if(currentPlayer === -1){
+    player = playerRed
+  }else{
+    player = playerYellow
+  }
   if (draw === true) message.textContent = 'Game is a Draw'
-  else if(winner === true) message.textContent = `${currentPlayer} wins`
+  else if(winner === true) message.textContent = `${player} wins`
   else if(currentPlayer === 1) message.textContent = "Red's turn"
   else if(currentPlayer === -1) message.textContent = "Yellow's turn"
 }
+

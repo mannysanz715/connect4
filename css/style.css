@@ -28,4 +28,18 @@ body{
   border-radius: 50%;
 }
 
+button{
+  background-color: #c6ebbe;
+  border: none;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 25px;
+}
+.circle:hover{
+  background-color: #62aa52;
+}
 
+button:hover{
+  background-color: #62aa52;
+}
