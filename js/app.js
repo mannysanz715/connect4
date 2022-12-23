@@ -56,8 +56,6 @@ const message = document.getElementById('message')
 
 const title = document.getElementById('title')
 
-
-console.log(title)
 // ? ----------------------- EventListeners ---------------
 
 gameBoard.addEventListener('click', play)
@@ -80,7 +78,9 @@ function init () {
   winner = false
   draw = false
   title.classList.add('animate__rotateInDownRight')
-  console.log(title.className)
+  setTimeout(function(){
+    title.classList.remove('animate__rotateInDownRight');
+  }, 1000);
   boardSlots.forEach(element =>{
     element.style.backgroundColor = ''
   })
@@ -149,9 +149,8 @@ function checkForWinner(){
   for(let i = 0; i < winningCombos.length; i++){
     if(Math.abs(boardForCheck[winningCombos[i][0]] + boardForCheck[winningCombos[i][1]] + boardForCheck[winningCombos[i][2]] + boardForCheck[winningCombos[i][3]]) === 4){
     winner = true
-      } 
+    } 
   }
-  console.log(winner)
 }
 
 function checkForDraw(){
