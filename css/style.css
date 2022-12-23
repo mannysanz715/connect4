@@ -1,5 +1,7 @@
---root{
+:root{
   --slotcolor: #01BAEF;
+  --slotBackgroundHover: #62aa52;
+  --slotBackground: #c6ebbe;
 }
 *{
   font-family: 'Unbounded', curisve;
@@ -11,7 +13,7 @@ body{
   display: flex;
   flex-direction:column ;
   align-items: center;
-  background-color: #01BAEF;
+  background-color: var(--slotcolor);
 }
 
 .board-container {
@@ -25,7 +27,7 @@ body{
   height: 550px;
 }
 .circle{
-  background-color: #c6ebbe;
+  background-color: var(--slotBackground);
   margin: 10px;
   width: 80px;
   height: 80px;
@@ -33,7 +35,7 @@ body{
 }
 
 button{
-  background-color: #c6ebbe;
+  background-color: var(--slotBackground);
   border: none;
   width: 85px;
   height: 85px;
@@ -46,9 +48,9 @@ button{
 
 }
 .circle:hover{
-  background-color: #62aa52;
+  background-color: var(--slotBackgroundHover);
 }
 
 button:hover{
-  background-color: #62aa52;
+  background-color: rgb(179, 68, 68);
 }
