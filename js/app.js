@@ -1,13 +1,16 @@
 
 // ? -------------------- consts ---------------------------
-const winningCombos = [[]]
+const winningCombos = [[],]
+console.log(boardSlots)
+
+
 
 let player1 = '#a63a50'
 let player2 = '#E6AA68'
 let boardArr = []
 let currentPlayer
 let winner
-
+let draw
 
 
 // ? -----------------  CachedElements -------------
@@ -36,6 +39,7 @@ init()
 function init () {
   currentPlayer = 1
   winner = false
+  draw = false
   boardSlots.forEach(element =>{
     element.style.backgroundColor = ''
   })
@@ -51,11 +55,12 @@ function createBoard(){
 
 
 function play(event){
+  checkForWinner()
   let clickedSlot = event.target
   if(clickedSlot.parentElement.className !== 'board-container'){
     dropPiece(event)
-    updateMessage()
   }
+  updateMessage()
 }
 
 function dropPiece(event){
@@ -66,8 +71,9 @@ function dropPiece(event){
       boardArr[column][i] = currentPlayer
       if(currentPlayer === 1) clickedSlot.parentElement.children[i].style.backgroundColor = player1 
       else if(currentPlayer === -1) clickedSlot.parentElement.children[i].style.backgroundColor = player2
+      checkForDraw()
       switchPlayer()
-      console.log(boardArr[column])
+      console.log(boardArr)
       return
       }
     }
@@ -77,10 +83,19 @@ function checkForWinner(){
 
 }
 
-function checkForTie(){
-  if(boardArr.every(el => el != null)){
-    tie = true
+function checkForDraw(){
+  let checkVal = 0
+  boardArr.forEach(arr =>{
+    arr.forEach(el =>{
+      checkVal += Math.abs(el)
+    })
+  })
+  if(checkVal === 42){
+    draw = true
   }
+  console.log(checkVal)
+
+  
 }
 
 function switchPlayer(){
@@ -92,10 +107,12 @@ function collisionDetection(){
 }
 
 function updateMessage (){
-  if(currentPlayer === 1){
+  if(draw === true){
+    message.textContent = 'Game is a Draw'
+  }
+  else if(currentPlayer === 1){
     message.textContent = "Red's turn"
   }else if(currentPlayer === -1){
-
     message.textContent = "Yellow's turn"
   }
 }
