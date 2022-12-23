@@ -63,10 +63,11 @@ function dropPiece(event){
   let column = event.target.parentElement.classList[0]
   for(let i = 5; i > -1; i--){
     if(boardArr[column][i] == null){
-      boardArr[column][i] = 1
+      boardArr[column][i] = currentPlayer
       if(currentPlayer === 1) clickedSlot.parentElement.children[i].style.backgroundColor = player1 
       else if(currentPlayer === -1) clickedSlot.parentElement.children[i].style.backgroundColor = player2
       switchPlayer()
+      console.log(boardArr[column])
       return
       }
     }
