@@ -1,6 +1,6 @@
 # ConnectFOR
 
-[CLICK HERE TO PLAY](https://connect4-ms.netlify.app/ "connect4 link")
+[CLICK HERE TO PLAY](https://connect4ms.netlify.app/ "connect4 link")
 ---------------------
 ![gameImg](./assets/Screenshot%202022-12-22%20at%209.21.25%20PM.png)
 
